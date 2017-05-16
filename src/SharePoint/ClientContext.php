@@ -74,13 +74,15 @@ class ClientContext extends ClientRuntimeContext
 
     /**
      * Submits query to SharePoint REST/OData service
+     * @param null $additionalHeaders
+     * @return \Office365\PHP\Client\Runtime\ClientRuntimeContext|void
      */
-    public function executeQuery()
+    public function executeQuery($additionalHeaders = null)
     {
         $this->getPendingRequest()->beforeExecuteQuery(function (RequestOptions $request,ClientAction $query){
             $this->buildSharePointSpecificRequest($request,$query);
         });
-        parent::executeQuery();
+        parent::executeQuery($additionalHeaders);
     }
 
     /**

@@ -126,11 +126,12 @@ class ClientRuntimeContext
     /**
      * Submit client request to SharePoint OData/SOAP service
      *
+     * @param null $additionalHeaders
      * @return self
      */
-    public function executeQuery()
+    public function executeQuery($additionalHeaders = null)
     {
-        $this->getPendingRequest()->executeQuery();
+        $this->getPendingRequest()->executeQuery($additionalHeaders);
         return $this;
     }
 
