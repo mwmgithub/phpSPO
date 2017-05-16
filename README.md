@@ -1,4 +1,10 @@
-﻿### About
+﻿### Fork info
+This repository is a fork from the original repository [vgrem/phpSPO](https://github.com/vgrem/phpSPO). The only difference that we added is the ability to specify custom additional headers in the method executeRequest.
+This allowed us to use all the accepted optional headers from sharepoint without the need to refactor a lot of propertary code.
+
+We highly suggest to use the original repository available at the link above, since this repository will not ba mantained constantly and will not be updated if not necessary.
+
+### About
 The library provides a Office 365 REST client for PHP applications. It allows to performs CRUD operations against Office 365 resources via an REST/OData based API. 
 
 #### The list of supported Office 365 REST APIs:

@@ -119,8 +119,10 @@ class ClientRequest
 
     /**
      * Submit client request(s) to Office 365 API OData/SOAP service
+     * @param null $additionalHeaders
+     * @throws Exception
      */
-    public function executeQuery()
+    public function executeQuery($additionalHeaders = null)
     {
         $serializer = new JsonPayloadSerializer($this->format);
         while(($qry = array_shift($this->queries)) !== null) {
@@ -131,6 +133,11 @@ class ClientRequest
                     $qry
                 ));
             }
+
+            foreach($additionalHeaders as $header => $value) {
+                $request->addCustomHeader($header, $value);
+            }
+
             $response = $this->executeQueryDirect($request);
             if (empty($response)) {
                 continue;
