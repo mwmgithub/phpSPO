@@ -134,8 +134,10 @@ class ClientRequest
                 ));
             }
 
-            foreach($additionalHeaders as $header => $value) {
-                $request->addCustomHeader($header, $value);
+            if($additionalHeaders !== null){
+                foreach($additionalHeaders as $header => $value) {
+                    $request->addCustomHeader($header, $value);
+                }
             }
 
             $response = $this->executeQueryDirect($request);
